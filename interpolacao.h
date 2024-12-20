@@ -20,7 +20,7 @@ typedef struct {
 
 extern arrayInter* buildADI(int _size);                                                                          // Inicializa o array
 extern void destroyADI(arrayInter* interpol, int inst_size);                                                     // Libera todo o espaço de memória associado
-extern void leituraADI(char* instancia, arrayInter** interpol, char*** input, char*** output, int *inst_size); // Lê os dados do csv para o problema
-extern void execADI(char* instancia, arrayInter* arr, char*** respostas, int *inst_size, int doOutPut);                           // Ler os dados da instância
+extern void leituraADI(char* instancia, arrayInter** interpol, char*** input, char*** output, int *inst_size);   // Lê os dados do csv para o problema
+extern void execADI(char* instancia, arrayInter* arr, char*** respostas, int *inst_size, int doOutPut);          // Ler os dados da instância
 
 #endif

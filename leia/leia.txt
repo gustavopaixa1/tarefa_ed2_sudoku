@@ -1,0 +1,23 @@
+Alunos:
+
+Luerson de Albuquerque Silva Filho - 20220054900
+Luiz Gustavo paixão da Gama        - 20220005834
+
+notas dos desenvolvedores:
+
+ - como o csv do sudoku é muito grande, precisa adicionar na pasta após descompactar. Quando o sudoku.csv for adicionado na pasta, você deve procurar as funções 
+   "leituraADI" e  "leituraEDM" que  recebem um  parâmetro que até o  momento está  como "sudoku.csv".  Esse parâmetro deve ser  substituído pelo  novo caminho.
+
+ - Você pode usar o gerador de instâncias "instanceGen.py" para criar novas instâncias. Ele só pede o caminho para armazenar, o nome do arquivo, número de jogos
+   e a quantidade máxima de vezes na qual um jogo pode ser repetido. Algumas instâncias padrão para teste podem ser encontradas na pasta "input/".
+
+ - A ideia do trabalho é pesquisar o comportamento desses algoritmos em diferentes contextos (representados pelas instâncias). Pode ser  posteriormente ampliado
+   para outros algoritmos como busca binária ou lista com saltos.
+
+ - O código já está completamente funcional, mas ainda há polimentos necessários para torná-lo uma versão final, como torná-lo mais robusto a inputs errados por
+   parte do usuário.
+
+ - Uma possível melhora para esse código seria a criação de uma estrutura de array unificada  para qualquer algoritmo que utilize arrays.  Algo similar pode ser
+   feito para algoritmos baseados em listas encadeadas, mas até o momento isso não foi implementado.
+
+ - para compilar basta difitar o comando no linux "gcc -o *.c main" e para rodar basta executar o comando "./main".

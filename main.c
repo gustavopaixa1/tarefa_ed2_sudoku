@@ -55,10 +55,10 @@ int main(int argc, char *argv[])
     //     return 1;
     // }
 
-    // if (my_array_mov == NULL) {
-    //     perror("Falha na alocação de memória para my_array_mov");
-    //     return 2;
-    // }
+    if (my_array_mov == NULL) {
+        perror("Falha na alocação de memória para my_array_mov");
+        return 2;
+    }
 
     if (my_interpol == NULL)
     {
@@ -67,8 +67,8 @@ int main(int argc, char *argv[])
     }
 
     // Leitura dos dados e armazenamento de acordo com entrada
-    leituraADI("sudoku_file/sudoku.csv", &my_interpol, &inputADI, &outputADI, &inst_size_ADI);
-    leituraEDM("sudoku_file/sudoku.csv", &my_array_mov, &inputEDM, &outputEDM, &inst_size_EDM);
+    leituraADI("sudoku.csv", &my_interpol, &inputADI, &outputADI, &inst_size_ADI);
+    leituraEDM("sudoku.csv", &my_array_mov, &inputEDM, &outputEDM, &inst_size_EDM);
     // leituraBB("sudoku_file/sudoku.csv", &my_array_bb, &inputBB, &outputBB, &inst_size_BB);
 
     do
@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
         {
             printf("Executando busca com movimentacao...\n");
             inicio = clock();
-            execEDM(instancia, my_array_mov, &respEDM, &inst_size_EDM);
+            execEDM(instancia, my_array_mov, &respEDM, &inst_size_EDM, doOutPut);
             fim = clock();
             tempoDeCpu = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
             printf("Tempo de CPU - Movimentacao: %lf\n\n", tempoDeCpu);
@@ -141,7 +141,7 @@ int main(int argc, char *argv[])
 
             printf("Executando busca com movimentacao...\n");
             inicio = clock();
-            execEDM(instancia, my_array_mov, &respEDM, &inst_size_EDM);
+            execEDM(instancia, my_array_mov, &respEDM, &inst_size_EDM, doOutPut);
             fim = clock();
             tempoDeCpu = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
             printf("Tempo de CPU - Movimentacao: %lf\n\n", tempoDeCpu);

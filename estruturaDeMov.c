@@ -79,7 +79,7 @@ static void insert(char* start_game, char* solution, arrayEDM** interpol) {
     (*interpol)->hash_map[index]->game_solution = solution;
 }
 
-static pairEDM* buscaSeqMovimenta(arrayEDM* arr, char* start_game) {
+static pairEDM* buscaSeqMovimenta(arrayEDM* arr, char* start_game, int doOutPut) {
     for (int i = 0; i < arr->totalElementos; i++) {
         if (strcmp(arr->hash_map[i]->start_game, start_game) == 0) {
             int posicao_destino = i - 1000000;
@@ -93,7 +93,9 @@ static pairEDM* buscaSeqMovimenta(arrayEDM* arr, char* start_game) {
                 i--;
             }
             
-            printf("Total de %d iteracoes: ", totalIteracoes);
+            if (doOutPut) {
+                printf("Total de %d iteracoes: ", totalIteracoes);
+            }
             return arr->hash_map[i];
         }
     }
@@ -217,15 +219,15 @@ void leituraEDM(char* instancia, arrayEDM** interpol, char*** input, char*** out
 }
 
 // TODO LIST
-static char* getSolution(char* start_game, arrayEDM* arr) {
-    pairEDM* found = buscaSeqMovimenta(arr, start_game);
+static char* getSolution(char* start_game, arrayEDM* arr, int doOutPut) {
+    pairEDM* found = buscaSeqMovimenta(arr, start_game, doOutPut);
     if (found != NULL) {
         return found->game_solution;  // Retorna a solução do jogo
     }
     return NULL; 
 }
 
-void execEDM(char* instancia, arrayEDM* arr, char*** respostas, int *inst_size) {
+void execEDM(char* instancia, arrayEDM* arr, char*** respostas, int *inst_size, int doOutPut) {
     FILE* file = fopen(instancia, "r");
     if (file == NULL) {
         perror("Erro ao abrir o arquivo");
@@ -267,7 +269,11 @@ void execEDM(char* instancia, arrayEDM* arr, char*** respostas, int *inst_size) 
     }
 
     for (int i = 0; i < *inst_size; i++) {
-        puts(getSolution((*respostas)[i], arr));
+        if (doOutPut) {
+            puts(getSolution((*respostas)[i], arr, doOutPut));
+        } else {
+            getSolution((*respostas)[i], arr, doOutPut);
+        }
     }
 
     fclose(file);
